@@ -1,21 +1,27 @@
 import React from "react";
+
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 
-function ProfileForm() {
+const styles = theme => ({});
+
+function ProfileForm(props) {
+  //const { classes } = props;
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
         Organization Profile
       </Typography>
-      <Grid container spacing={24}>
+      <Grid container spacing={2}>
         <Grid item xs={12} sm={12}>
           <TextField
             required
             id="organizationName"
             name="organizationName"
             label="Organization/ Institution name"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
           />
@@ -29,6 +35,8 @@ function ProfileForm() {
             //onChange={this.onChange}
             label="Date of registration"
             type="date"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="off"
             InputLabelProps={{
@@ -43,6 +51,8 @@ function ProfileForm() {
             name="address1"
             label="Legal Registration Entity No"
             helperText="(NGO or Company)"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="billing address-line1"
           />
@@ -53,6 +63,8 @@ function ProfileForm() {
             id="city"
             name="city"
             label="Telephone"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="telephone"
           />
@@ -62,6 +74,8 @@ function ProfileForm() {
             id="email"
             name="email"
             label="Email"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="email"
           />
@@ -72,6 +86,8 @@ function ProfileForm() {
             id="website"
             name="website"
             label="Website(optional)"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="website"
           />
@@ -82,10 +98,11 @@ function ProfileForm() {
             label="Postal Address"
             multiline
             rowsMax="4"
+            margin="normal"
+            variant="outlined"
             fullWidth
             //value={this.state.multiline}
             //onChange={this.handleChange("multiline")}
-            margin="normal"
           />
         </Grid>
         <Grid item xs={12} sm={12}>
@@ -94,10 +111,11 @@ function ProfileForm() {
             label="Mission Statement"
             multiline
             rowsMax="4"
+            margin="normal"
+            variant="outlined"
             fullWidth
             //value={this.state.multiline}
             //onChange={this.handleChange("multiline")}
-            margin="normal"
           />
         </Grid>
 
@@ -112,6 +130,8 @@ function ProfileForm() {
             id="district"
             name="district"
             label="District"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="district"
           />
@@ -122,16 +142,20 @@ function ProfileForm() {
             id="town"
             name="town"
             label="Town"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="town"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <TextField
             required
             id="street"
             name="street"
             label="Street"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="street"
           />
@@ -147,6 +171,8 @@ function ProfileForm() {
             id="contactPersonName"
             name="contactPersonName"
             label="Name"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="name"
           />
@@ -157,6 +183,8 @@ function ProfileForm() {
             id="contactPersonPosition"
             name="contactPersonPosition"
             label="Position"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="position"
           />
@@ -167,6 +195,8 @@ function ProfileForm() {
             id="contactPersonTelephone"
             name="contactPersonTelephone"
             label="Mobile"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="mobile"
           />

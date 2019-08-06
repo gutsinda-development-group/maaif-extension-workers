@@ -4,22 +4,27 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
+//import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
+//import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+
+//import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import PersonIcon from "@material-ui/icons/Person";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+
+import PollIcon from "@material-ui/icons/Poll";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+
+import firebase from "firebase";
 
 const styles = theme => ({
   root: {
@@ -31,6 +36,7 @@ const styles = theme => ({
   menuButton: {
     textTransform: "capitalize",
     fontWeight: "bold",
+    fontSize: "19px",
     marginLeft: -12,
     marginRight: 20
   },
@@ -110,6 +116,10 @@ class Header extends React.Component {
     mobileMoreAnchorEl: null
   };
 
+  logOutUser = () => {
+    firebase.auth().signOut();
+  };
+
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
@@ -141,10 +151,9 @@ class Header extends React.Component {
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
+        <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
         <MenuItem onClick={this.handleMenuClose}>Settings</MenuItem>
-        <Link to="/logout" className={classes.link}>
-          <MenuItem onClick={this.handleMenuClose}>Logout</MenuItem>
-        </Link>
+        <MenuItem onClick={this.handleMenuClose}>Logout</MenuItem>
       </Menu>
     );
 
@@ -184,52 +193,68 @@ class Header extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="fixed" style={{ background: "#2E3B55" }}>
+        <AppBar position="fixed" style={{ background: "#0000CD" }}>
           <Toolbar>
             <Typography
               className={classes.title}
-              variant="h6"
+              variant="h4"
               color="inherit"
               noWrap
-              style={{ fontWeight: "bold" }}
+              //style={{ fontWeight: "bold" }}
             >
-              MAAIF Extension Workers e-registration
+              MAAIF Extention Workers App
             </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput
-                }}
-              />
-            </div>
+
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <div>
                 <Grid container justify="center" alignItems="center">
-                  <Link to="/" className={classes.link}>
-                    <Button color="inherit" className={classes.menuButton}>
-                      Dashboard
-                    </Button>
-                  </Link>
+                  <div style={{ paddingRight: 20 }}>
+                    <Link to="/" className={classes.link}>
+                      <IconButton color="inherit">
+                        <PersonAddIcon />
+                      </IconButton>
 
-                  <Link to="/profile" className={classes.link}>
-                    <Button color="inherit" className={classes.menuButton}>
-                      Profile
-                    </Button>
-                  </Link>
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="/static/images/avatar/1.jpg"
-                    className={classes.avatar}
-                    onClick={this.handleProfileMenuOpen}
-                  />
+                      <Typography
+                        variant="body2"
+                        color="inherit"
+                        noWrap
+                        style={{ fontWeight: "bold" }}
+                      >
+                        Wizard
+                      </Typography>
+                    </Link>
+                  </div>
+                  <div style={{ paddingRight: 20 }}>
+                    <Link to="/" className={classes.link}>
+                      <IconButton color="inherit">
+                        <PersonIcon />
+                      </IconButton>
+
+                      <Typography
+                        variant="body2"
+                        color="inherit"
+                        noWrap
+                        style={{ fontWeight: "bold" }}
+                      >
+                        Profile
+                      </Typography>
+                    </Link>
+                  </div>
                 </Grid>
               </div>
+
+              {/*  <IconButton
+                aria-owns={isMenuOpen ? "material-appbar" : undefined}
+                aria-haspopup="true"
+                onClick={this.handleProfileMenuOpen}
+                color="inherit"
+              >
+                <ArrowDropDownIcon />
+              </IconButton> */}
+              <IconButton color="inherit" onClick={this.handleProfileMenuOpen}>
+                <AccountCircle style={{ height: 50, width: 50 }} />
+              </IconButton>
             </div>
             <div className={classes.sectionMobile}>
               <IconButton

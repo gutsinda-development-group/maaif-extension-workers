@@ -35,6 +35,11 @@ const styles = theme => ({
   },
   title: {
     marginTop: theme.spacing.unit * 2
+  },
+  // Overiding css properties on material ui textbox
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "grey !important"
   }
 });
 
@@ -52,7 +57,7 @@ function Review(props) {
         related officer, etc
       </Typography>
 
-      <Grid container spacing={16}>
+      <Grid container spacing={2}>
         <br />
         <br />
         <br />
@@ -62,8 +67,15 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Firstname"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -72,8 +84,15 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Surname"
-            fullWidth
             autoComplete="organizationName"
+            margin="normal"
+            variant="outlined"
+            fullWidth
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -82,8 +101,15 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Title"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -92,8 +118,15 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Telephone"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -102,8 +135,15 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Email"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
           <br />
           <br />

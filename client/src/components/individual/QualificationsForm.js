@@ -38,6 +38,11 @@ const styles = theme => ({
   },
   noLabel: {
     marginTop: theme.spacing.unit * 3
+  },
+  // Overiding css properties on material ui textbox
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "grey !important"
   }
 });
 
@@ -75,7 +80,7 @@ class ProfileForm extends React.Component {
         <Typography variant="h5" gutterBottom>
           Individual Profile
         </Typography>
-        <Grid container spacing={24}>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="select-multiple-checkbox">Field</InputLabel>
@@ -141,8 +146,15 @@ class ProfileForm extends React.Component {
               id="organizationName"
               name="organizationName"
               label="Field of training"
-              fullWidth
               autoComplete="organizationName"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              InputProps={{
+                classes: {
+                  notchedOutline: classes.notchedOutline
+                }
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -151,8 +163,15 @@ class ProfileForm extends React.Component {
               id="organizationName"
               name="organizationName"
               label="Duration"
-              fullWidth
               autoComplete="organizationName"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              InputProps={{
+                classes: {
+                  notchedOutline: classes.notchedOutline
+                }
+              }}
             />
           </Grid>
           <Grid item xs={12} md={2}>

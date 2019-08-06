@@ -139,6 +139,7 @@ class Checkout extends React.Component {
                   <div className={classes.buttons}>
                     {activeStep !== 0 && (
                       <Button
+                        fullWidth
                         onClick={this.handleBack}
                         className={classes.button}
                       >
@@ -148,6 +149,7 @@ class Checkout extends React.Component {
                     <Button
                       variant="contained"
                       color="primary"
+                      fullWidth
                       onClick={this.handleNext}
                       className={classes.button}
                     >

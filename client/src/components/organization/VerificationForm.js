@@ -52,7 +52,7 @@ function Review(props) {
         related officer, etc
       </Typography>
 
-      <Grid container spacing={16}>
+      <Grid container spacing={2}>
         <br />
         <br />
         <br />
@@ -62,6 +62,8 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Firstname"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
           />
@@ -72,6 +74,8 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Surname"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
           />
@@ -82,6 +86,8 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Title"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
           />
@@ -92,6 +98,8 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Telephone"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
           />
@@ -102,6 +110,8 @@ function Review(props) {
             id="organizationName"
             name="organizationName"
             label="Email"
+            margin="normal"
+            variant="outlined"
             fullWidth
             autoComplete="organizationName"
           />
