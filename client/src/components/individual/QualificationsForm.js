@@ -11,6 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 
@@ -25,9 +26,10 @@ const styles = theme => ({
     flexWrap: "wrap"
   },
   formControl: {
-    margin: theme.spacing.unit,
+    //margin: theme.spacing.unit,
     minWidth: "100%",
-    maxWidth: "auto"
+    //maxWidth: "auto"
+    margin: theme.spacing(1)
   },
   chips: {
     display: "flex",
@@ -38,6 +40,9 @@ const styles = theme => ({
   },
   noLabel: {
     marginTop: theme.spacing.unit * 3
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
   },
   // Overiding css properties on material ui textbox
   notchedOutline: {
@@ -56,7 +61,6 @@ const MenuProps = {
     }
   }
 };
-
 const fields = ["Crop", "Animal science", "Fisheries", "Forestry"];
 
 const qualifications = ["PhD", "Masters", "BSc.", "Diploma", "Certificate"];
@@ -64,12 +68,18 @@ const qualifications = ["PhD", "Masters", "BSc.", "Diploma", "Certificate"];
 class ProfileForm extends React.Component {
   state = { fields: [], qualifications: [] };
 
-  onChangeField = event => {
+  onChangeFields = event => {
     this.setState({ fields: event.target.value });
   };
 
   onChangeQualification = event => {
     this.setState({ qualifications: event.target.value });
+  };
+
+  handleChange = qualifications => {
+    this.setState({
+      qualifications: [...this.state.qualifications, qualifications]
+    });
   };
 
   render() {
@@ -82,27 +92,31 @@ class ProfileForm extends React.Component {
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="select-multiple-checkbox">Field</InputLabel>
-              <Select
-                multiple
-                value={this.state.fields}
-                onChange={this.onChangeField}
-                input={<Input id="select-multiple-checkbox" />}
-                renderValue={selected => selected.join(", ")}
-                MenuProps={MenuProps}
-              >
-                {fields.map(name => (
-                  <MenuItem key={name} value={name}>
-                    <Checkbox checked={this.state.fields.indexOf(name) > -1} />
-                    <ListItemText primary={name} />
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+            <div className={classes.root}>
+              <FormControl className={classes.formControl} variant="filled">
+                <InputLabel>Field</InputLabel>
+                <Select
+                  multiple
+                  value={this.state.fields}
+                  onChange={this.onChangeFields}
+                  input={<OutlinedInput id="select-multiple-checkbox" />}
+                  renderValue={selected => selected.join(", ")}
+                  MenuProps={MenuProps}
+                >
+                  {fields.map(name => (
+                    <MenuItem key={name} value={name}>
+                      <Checkbox
+                        checked={this.state.fields.indexOf(name) > -1}
+                      />
+                      <ListItemText primary={name} />
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">
                 Qualification
               </InputLabel>
@@ -110,7 +124,7 @@ class ProfileForm extends React.Component {
                 multiple
                 value={this.state.qualifications}
                 onChange={this.onChangeQualification}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -133,7 +147,7 @@ class ProfileForm extends React.Component {
                 name="furtherTraining"
                 className={classes.group}
                 value={this.state.value}
-                onChange={this.handleChange}
+                //onChange={this.handleChange}
               >
                 <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                 <FormControlLabel value="no" control={<Radio />} label="No" />

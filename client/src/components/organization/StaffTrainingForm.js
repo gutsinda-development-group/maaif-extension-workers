@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -12,6 +12,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 
 import Input from "@material-ui/core/Input";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
 
 import FormControl from "@material-ui/core/FormControl";
@@ -174,7 +175,7 @@ const levels = [
   }
 ];
 
-class StaffTrainingForm extends React.Component {
+class StaffTrainingForm extends Component {
   state = { animalProduction: [], cropProduction: [] };
 
   handleChange = event => {
@@ -193,11 +194,11 @@ class StaffTrainingForm extends React.Component {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Typography variant="h6" gutterBottom>
           Staff & Training
         </Typography>
-        <Grid container spacing={24}>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
             <Typography variant="h6" color="primary" gutterBottom>
               AEAS staff:
@@ -213,6 +214,8 @@ class StaffTrainingForm extends React.Component {
               label="Number of Male"
               type="number"
               fullWidth
+              margin="normal"
+              variant="outlined"
               autoComplete="off"
             />
           </Grid>
@@ -226,6 +229,8 @@ class StaffTrainingForm extends React.Component {
               label="Number of Female"
               type="number"
               fullWidth
+              margin="normal"
+              variant="outlined"
               autoComplete="off"
             />
           </Grid>
@@ -243,6 +248,8 @@ class StaffTrainingForm extends React.Component {
               //onChange={this.onChange}
               label="Level*"
               fullWidth
+              margin="normal"
+              variant="outlined"
               helperText="Please select Level"
               InputLabelProps={{
                 shrink: true
@@ -265,6 +272,8 @@ class StaffTrainingForm extends React.Component {
               label="Number of Male"
               type="number"
               fullWidth
+              margin="normal"
+              variant="outlined"
               autoComplete="off"
             />
           </Grid>
@@ -278,6 +287,8 @@ class StaffTrainingForm extends React.Component {
               label="Number of Female"
               type="number"
               fullWidth
+              margin="normal"
+              variant="outlined"
               autoComplete="off"
             />
           </Grid>
@@ -299,6 +310,8 @@ class StaffTrainingForm extends React.Component {
               //onChange={this.onChange}
               label="Sector*"
               fullWidth
+              margin="normal"
+              variant="outlined"
               helperText="Please select Sector"
               InputLabelProps={{
                 shrink: true
@@ -344,7 +357,7 @@ class StaffTrainingForm extends React.Component {
             >
               Animal Production:
             </Typography>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-chip" color="primary">
                 Animal Production
               </InputLabel>
@@ -353,7 +366,7 @@ class StaffTrainingForm extends React.Component {
                 value={this.state.animalProduction}
                 color="primary"
                 onChange={this.onChange}
-                input={<Input id="select-multiple-chip" />}
+                input={<OutlinedInput id="select-multiple-chip" />}
                 renderValue={selected => (
                   <div className={classes.chips}>
                     {selected.map(value => (
@@ -384,7 +397,7 @@ class StaffTrainingForm extends React.Component {
             >
               Crop Production:
             </Typography>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-chip" color="primary">
                 Crop Production
               </InputLabel>
@@ -392,7 +405,7 @@ class StaffTrainingForm extends React.Component {
                 multiple
                 value={this.state.cropProduction}
                 onChange={this.handleChangeCrops}
-                input={<Input id="select-multiple-chip" />}
+                input={<OutlinedInput id="select-multiple-chip" />}
                 renderValue={selected => (
                   <div className={classes.chips}>
                     {selected.map(value => (
@@ -461,7 +474,7 @@ class StaffTrainingForm extends React.Component {
             />
           </Grid>
         </Grid>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

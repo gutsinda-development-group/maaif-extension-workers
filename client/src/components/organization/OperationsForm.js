@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Checkbox from "@material-ui/core/Checkbox";
 import MenuItem from "@material-ui/core/MenuItem";
 import Input from "@material-ui/core/Input";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -84,7 +85,7 @@ const beneficiaries = ["Farmers", "Students", "Field Extension workers"];
 const beneficiaryCategory = ["All Farmers", "Rural", "Peri-Urban"];
 const beneficiaryGender = ["All Genders", "Women", "Youths"];
 
-class OperationsForm extends React.Component {
+class OperationsForm extends Component {
   state = {
     name: [],
     centralDistricts: [],
@@ -128,11 +129,11 @@ class OperationsForm extends React.Component {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Typography variant="h5" gutterBottom>
           Area of operation:
         </Typography>
-        <Grid container spacing={24}>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
             <Typography
               variant="body1"
@@ -144,8 +145,8 @@ class OperationsForm extends React.Component {
             </Typography>
           </Grid>
 
-          <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+          <Grid item xs={12} sm={12}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">
                 Central
               </InputLabel>
@@ -153,7 +154,7 @@ class OperationsForm extends React.Component {
                 multiple
                 value={this.state.centralDistricts}
                 onChange={this.onChangeCentralDistricts}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -169,14 +170,14 @@ class OperationsForm extends React.Component {
             </FormControl>
           </Grid>
 
-          <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+          <Grid item xs={12} sm={12}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">East</InputLabel>
               <Select
                 multiple
                 value={this.state.easternDistricts}
                 onChange={this.onChangeEasternDistricts}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -191,14 +192,14 @@ class OperationsForm extends React.Component {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+          <Grid item xs={12} sm={12}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">North</InputLabel>
               <Select
                 multiple
                 value={this.state.northernDistricts}
                 onChange={this.onChangeNorthernDistricts}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -213,14 +214,14 @@ class OperationsForm extends React.Component {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+          <Grid item xs={12} sm={12}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">West</InputLabel>
               <Select
                 multiple
                 value={this.state.westernDistricts}
                 onChange={this.onChangeWesternDistricts}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -246,7 +247,7 @@ class OperationsForm extends React.Component {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12}>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">
                 Key beneficiaries
               </InputLabel>
@@ -254,7 +255,7 @@ class OperationsForm extends React.Component {
                 multiple
                 value={this.state.beneficiaries}
                 onChange={this.onChangeBeneficiaries}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -270,7 +271,7 @@ class OperationsForm extends React.Component {
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">
                 Category
               </InputLabel>
@@ -278,7 +279,7 @@ class OperationsForm extends React.Component {
                 multiple
                 value={this.state.beneficiaryCategory}
                 onChange={this.onChangeBeneficiaryCategory}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -296,13 +297,13 @@ class OperationsForm extends React.Component {
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">Gender</InputLabel>
               <Select
                 multiple
                 value={this.state.beneficiaryGender}
                 onChange={this.onChangeBeneficiaryGender}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -318,7 +319,7 @@ class OperationsForm extends React.Component {
             </FormControl>
           </Grid>
         </Grid>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

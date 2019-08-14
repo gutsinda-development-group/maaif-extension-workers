@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +8,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
+
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 import Select from "@material-ui/core/Select";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
@@ -75,7 +77,7 @@ const sectors = [
   "Farmers Organization"
 ];
 
-class ExperienceForm extends React.Component {
+class ExperienceForm extends Component {
   state = { sectors: [], animalProduction: [], cropProduction: [] };
 
   onChangeSectors = event => {
@@ -94,11 +96,11 @@ class ExperienceForm extends React.Component {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Typography variant="h5" gutterBottom>
           Experience:
         </Typography>
-        <Grid container spacing={24}>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
             <FormControl component="fieldset" className={classes.formControl}>
               <FormLabel component="legend">Work status</FormLabel>
@@ -129,9 +131,10 @@ class ExperienceForm extends React.Component {
               multiline
               rowsMax="3"
               fullWidth
+              margin="normal"
+              variant="outlined"
               //value={this.state.multiline}
               //onChange={this.handleChange("multiline")}
-              margin="normal"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -141,19 +144,20 @@ class ExperienceForm extends React.Component {
               multiline
               rowsMax="3"
               fullWidth
+              margin="normal"
+              variant="outlined"
               //value={this.state.multiline}
               //onChange={this.handleChange("multiline")}
-              margin="normal"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+          <Grid item xs={12} sm={12}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-checkbox">Sector</InputLabel>
               <Select
                 multiple
                 value={this.state.sectors}
                 onChange={this.onChangeSectors}
-                input={<Input id="select-multiple-checkbox" />}
+                input={<OutlinedInput id="select-multiple-checkbox" />}
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
@@ -166,7 +170,7 @@ class ExperienceForm extends React.Component {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} />
+
           <Grid item xs={12} sm={12}>
             <FormControl component="fieldset" className={classes.formControl}>
               <FormLabel component="legend">
@@ -201,7 +205,7 @@ class ExperienceForm extends React.Component {
             >
               Animal Production:
             </Typography>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-chip" color="primary">
                 Animal Production
               </InputLabel>
@@ -210,7 +214,7 @@ class ExperienceForm extends React.Component {
                 value={this.state.animalProduction}
                 color="primary"
                 onChange={this.onChangeAnimal}
-                input={<Input id="select-multiple-chip" />}
+                input={<OutlinedInput id="select-multiple-chip" />}
                 renderValue={selected => (
                   <div className={classes.chips}>
                     {selected.map(value => (
@@ -241,7 +245,7 @@ class ExperienceForm extends React.Component {
             >
               Crop Production:
             </Typography>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} variant="filled">
               <InputLabel htmlFor="select-multiple-chip" color="primary">
                 Crop Production
               </InputLabel>
@@ -249,7 +253,7 @@ class ExperienceForm extends React.Component {
                 multiple
                 value={this.state.cropProduction}
                 onChange={this.onChangeCrops}
-                input={<Input id="select-multiple-chip" />}
+                input={<OutlinedInput id="select-multiple-chip" />}
                 renderValue={selected => (
                   <div className={classes.chips}>
                     {selected.map(value => (
@@ -318,7 +322,7 @@ class ExperienceForm extends React.Component {
             />
           </Grid>
         </Grid>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

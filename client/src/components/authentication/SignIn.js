@@ -126,12 +126,7 @@ class SignIn extends Component {
             <br />
             <br />
             <Link to="/signup" className={classes.link}>
-              <Button
-                variant="outlined"
-                fullWidth
-                color="primary"
-                style={{ border: "2px solid indigo" }}
-              >
+              <Button variant="contained" fullWidth color="secondary">
                 Create Account
               </Button>
             </Link>
