@@ -8,6 +8,7 @@ import SignUp from "./components/authentication/SignUp";
 //import Header from "./components/Layout/Header";
 import OrganizationWizard from "./components/organization/OrganizationWizard";
 import IndividualWizard from "./components/individual/IndividualWizard";
+import IndividualProfile from "./components/individual/IndividualProfile";
 
 //import LandingPage from "./pages/home";
 
@@ -26,6 +27,7 @@ const App = ({ classes }) => (
 
     <main className={classes.main}>
       <Switch>
+        <Route path="/profile" component={IndividualProfile} />
         <Route exact path="/" component={SignIn} />
         <Route exact path="/signup" component={SignUp} />
         <Route path="/individual" component={IndividualWizard} />

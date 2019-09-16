@@ -19,7 +19,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
-      width: 400,
+      width: 450,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -122,14 +122,34 @@ class SignIn extends Component {
                 </Button>
               </Link>
             </form>
-            <br />
-            <br />
-            <br />
-            <Link to="/signup" className={classes.link}>
-              <Button variant="contained" fullWidth color="secondary">
-                Create Account
-              </Button>
-            </Link>
+
+            <div className={classes.form}>
+              <br />
+              <Typography component="h1" variant="h5" align="center">
+                Sign up
+              </Typography>
+              <Link to="/individual" className={classes.link}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="secondary"
+                  className={classes.submit}
+                >
+                  Join as Individual
+                </Button>
+              </Link>
+
+              <Link to="/organization" className={classes.link}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="secondary"
+                  className={classes.submit}
+                >
+                  Join as Organization
+                </Button>
+              </Link>
+            </div>
           </Paper>
         </main>
       </React.Fragment>

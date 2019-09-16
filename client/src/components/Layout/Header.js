@@ -226,7 +226,7 @@ class Header extends React.Component {
                     </Link>
                   </div>
                   <div style={{ paddingRight: 20 }}>
-                    <Link to="/" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <IconButton color="inherit">
                         <PersonIcon />
                       </IconButton>

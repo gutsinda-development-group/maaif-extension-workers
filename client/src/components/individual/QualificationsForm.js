@@ -88,7 +88,7 @@ class ProfileForm extends React.Component {
     return (
       <React.Fragment>
         <Typography variant="h5" gutterBottom>
-          Individual Profile
+          Qualifications
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
