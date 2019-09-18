@@ -8,7 +8,14 @@ import PersonalInfo from "../individual/PersonalInfo";
 import OperationsInfo from "../individual/Profiles/Individual/OperationsInfo";
 import KeyBeneficiaries from "../individual/Profiles/Individual/KeyBeneficiaries";
 
-const styles = theme => ({});
+const styles = theme => ({
+  main: {
+    marginLeft: "2%",
+    marginRight: "2%",
+    width: "auto"
+    //display: "block" // Fix IE 11 issue.
+  }
+});
 
 class IndividualProfile extends Component {
   state = {};
@@ -20,7 +27,7 @@ class IndividualProfile extends Component {
       <Fragment>
         <CssBaseline />
         <Header />
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className={classes.main}>
           <Grid item lg={3} md={6} xs={12}>
             <br />
             <br />
@@ -34,7 +41,9 @@ class IndividualProfile extends Component {
             <br />
             <br />
             <br />
-            <PersonalInfo />
+            <KeyBeneficiaries />
+            <br />
+            <OperationsInfo />
           </Grid>
           <Grid item lg={4} md={6} xs={12}>
             <br />
