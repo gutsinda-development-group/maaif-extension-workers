@@ -14,6 +14,7 @@ import Select from "@material-ui/core/Select";
 import { centralDistricts } from "../common/centralDistrictsList";
 import { northernDistricts } from "../common/northernDistrictsList";
 import { easternDistricts } from "../common/easternDistrictsList";
+import { westernDistricts } from "../common/westernDistrictsList";
 
 const styles = theme => ({
   root: {
@@ -60,8 +61,6 @@ const names = [
   "Virginia Andrews",
   "Kelly Snyder"
 ];
-
-const westernDistricts = ["Buhweju", "Buliisa", "Bundibugyo"];
 
 const beneficiaries = ["Farmers", "Students", "Field Extension workers"];
 
@@ -214,12 +213,14 @@ class OperationsForm extends Component {
                 renderValue={selected => selected.join(", ")}
                 MenuProps={MenuProps}
               >
-                {westernDistricts.map(name => (
-                  <MenuItem key={name} value={name}>
+                {westernDistricts.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
                     <Checkbox
-                      checked={this.state.westernDistricts.indexOf(name) > -1}
+                      checked={
+                        this.state.westernDistricts.indexOf(option.value) > -1
+                      }
                     />
-                    <ListItemText primary={name} />
+                    <ListItemText primary={option.label} />
                   </MenuItem>
                 ))}
               </Select>
